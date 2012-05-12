@@ -117,7 +117,8 @@ highlight SpecialKey guifg=#4a4a59
 if has("gui_running")
     if has("gui_macvim")
         set guifont=Monaco:h10
-        colorscheme blackboard
+        colorscheme solarized
+        set bg=light
         winsize 132 48
 
         " Remove toolbar, left scrollbar and right scrollbar
