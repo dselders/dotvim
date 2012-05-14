@@ -10,4 +10,4 @@ Get submodules:
 
 	cd ~/.vim
 	git submodule init
-	git submodule updates
+	git submodule update
