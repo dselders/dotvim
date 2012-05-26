@@ -100,7 +100,7 @@ vnoremap <tab> %
 nnoremap <leader><space> :noh<cr>
 nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
 nmap <leader>l :set list!<CR>
-nmap <leader>v :tabedit $MYVIMRC<CR>
+nmap <leader>v :edit $MYVIMRC<CR>
 if has("autocmd") 
 	autocmd! bufwritepost .vimrc source $MYVIMRC 
 endif
