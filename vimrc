@@ -107,6 +107,7 @@ endif
 " }}}
 
 " Highlighting {{{
+set t_Co=256
 colorscheme blackboard
 syntax on
 highlight NonText guifg=#4a4a59
