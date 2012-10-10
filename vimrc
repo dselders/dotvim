@@ -119,7 +119,7 @@ if has("gui_running")
     if has("gui_macvim")
         set guifont=Monaco:h10
         colorscheme solarized
-        set bg=light
+        set bg=dark
         winsize 132 48
 
         " Remove toolbar, left scrollbar and right scrollbar
@@ -145,7 +145,7 @@ endif
 " }}}
 
 " Keyboard Mappings {{{
-cabbrev help tab help
+"cabbrev help tab help
 nmap <silent> <leader>] :NERDTreeToggle<CR>
 nmap <silent> <leader>[ :TMiniBufExplorer<CR>
 " }}}
