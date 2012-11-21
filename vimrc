@@ -171,3 +171,7 @@ function! s:align()
   endif
 endfunction
 " }}}
+
+" Tmux & Clipboard {{{
+set clipboard=unnamed
+" }}}
