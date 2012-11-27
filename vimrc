@@ -33,26 +33,26 @@ vnoremap / /\v
 
 " Folding {{{
 set foldenable
-set foldcolumn=2
-set foldmethod=marker
+set foldcolumn=3
+"set foldmethod=marker
 set foldlevelstart=0
 set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
-function! MyFoldText()
-    let line = getline(v:foldstart)
-
-    let nucolwidth = &fdc + &number * &numberwidth
-    let windowwidth = winwidth(0) - nucolwidth - 3
-    let foldedlinecount = v:foldend - v:foldstart
-
-    " expand tabs into spaces
-    let onetab = strpart('          ', 0, &tabstop)
-    let line = substitute(line, '\t', onetab, 'g')
-
-    let line = strpart(line, 0, windowwidth - 2 - len(foldedlinecount))
-    let fillcharcount = windowwidth - len(line) - len(foldedlinecount) -4
-    return line . ' ...' . repeat(" ",fillcharcount) . foldedlinecount . ' '
-endfunction
-set foldtext=MyFoldText()
+"function! MyFoldText()
+"    let line = getline(v:foldstart)
+"
+"    let nucolwidth = &fdc + &number * &numberwidth
+"    let windowwidth = winwidth(0) - nucolwidth - 3
+"    let foldedlinecount = v:foldend - v:foldstart
+"
+"    " expand tabs into spaces
+"    let onetab = strpart('          ', 0, &tabstop)
+"    let line = substitute(line, '\t', onetab, 'g')
+"
+"    let line = strpart(line, 0, windowwidth - 2 - len(foldedlinecount))
+"    let fillcharcount = windowwidth - len(line) - len(foldedlinecount) -4
+"    return line . ' ...' . repeat(" ",fillcharcount) . foldedlinecount . ' '
+"endfunction
+"set foldtext=MyFoldText()
 " }}}
 
 " Editor Layout {{{
@@ -104,6 +104,7 @@ nmap <leader>v :edit $MYVIMRC<CR>
 if has("autocmd") 
 	autocmd! bufwritepost .vimrc source $MYVIMRC 
 endif
+filetype plugin on
 " }}}
 
 " Highlighting {{{
