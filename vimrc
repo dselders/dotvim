@@ -143,17 +143,18 @@ if has("gui_running")
         set guifont=Monaco:h10
         colorscheme solarized
         set bg=dark
-        winsize 132 48
+		set lines=48 columns=132
     endif
 
 	if has("gui_win32")
 		set guifont=Consolas:h10:cANSI
 		set bg=light
 		colorscheme solarized
+		set lines=48 columns=132
 	endif
     if has ("gui_gtk2")
         colorscheme blackboard
-        winsize 132 48
+		set lines=48 columns=132
     endif
 endif
 " }}}
