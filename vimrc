@@ -79,11 +79,19 @@ set history=1000
 set undolevels=1000
 if v:version >=730
 	set undofile
-	set undodir=~/.vim/.tmp,~/tmp,/tmp
+	if has("gui_win32")
+		set directory=~/vimfiles/tmp,c:/temp,c:/tmp
+	else
+		set undodir=~/.vim/.tmp,~/tmp,/tmp
+	endif
 endif
 set nobackup
 set noswapfile
-set directory=~/.vim/.tmp,~/tmp,/tmp
+	if has("gui_win32")
+		set directory=~/vimfiles/tmp,c:/temp,c:/tmp
+	else
+		set directory=~/.vim/.tmp,~/tmp,/tmp
+	endif
 set wildmenu
 set wildignore=*.swp,*.bak,*.pyc
 set title
@@ -98,17 +106,24 @@ let g:mapleader = ","
 nnoremap <tab> %
 vnoremap <tab> %
 nnoremap <leader><space> :noh<cr>
-nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
+if has("gui_macvim")
+	nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
+endif
 nmap <leader>l :set list!<CR>
 nmap <leader>v :edit $MYVIMRC<CR>
 if has("autocmd") 
-	autocmd! bufwritepost .vimrc source $MYVIMRC 
+	if has("gui_win32")
+		autocmd! bufwritepost _vimrc source $MYVIMRC
+	else
+		autocmd! bufwritepost .vimrc source $MYVIMRC 
+	endif
 endif
 " }}}
 
 " Highlighting {{{
 set t_Co=256
-colorscheme blackboard
+colorscheme solarized
+set bg=dark
 syntax on
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59 
@@ -116,30 +131,28 @@ highlight SpecialKey guifg=#4a4a59
 
 " GUI settings {{{
 if has("gui_running")
+    " Remove toolbar, left scrollbar and right scrollbar
+    set guioptions-=T
+    set guioptions-=l
+    set guioptions-=L
+    set guioptions-=r
+    set guioptions-=R
+
     if has("gui_macvim")
         set guifont=Monaco:h10
         colorscheme solarized
         set bg=dark
         winsize 132 48
-
-        " Remove toolbar, left scrollbar and right scrollbar
-        set guioptions-=T
-        set guioptions-=l
-        set guioptions-=L
-        set guioptions-=r
-        set guioptions-=R
     endif
 
+	if has("gui_win32")
+		set guifont=Consolas:h10:cANSI
+		set bg=light
+		colorscheme solarized
+	endif
     if has ("gui_gtk2")
         colorscheme blackboard
         winsize 132 48
-
-        " Remove toolbar, left scrollbar and right scrollbar
-        set guioptions-=T
-        set guioptions-=l
-        set guioptions-=L
-        set guioptions-=r
-        set guioptions-=R
     endif
 endif
 " }}}
