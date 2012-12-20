@@ -2,13 +2,12 @@
 " David Selders
 "
 
-" Basics {{{
+" Basics 
 call pathogen#infect()
 call pathogen#helptags()
 set nocompatible
-" }}}
 
-" Editing {{{
+" Editing 
 set showmode
 set nowrap
 set ts=4 sts=4 sw=4 noexpandtab
@@ -29,33 +28,14 @@ set fo=tcq
 " http://stevelosh.com/blog/2010/09/coming-home-to-vim/
 nnoremap / /\v
 vnoremap / /\v
-" }}}
 
-" Folding {{{
+" Folding 
 set foldenable
 set foldcolumn=3
-"set foldmethod=marker
 set foldlevelstart=0
 set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
-"function! MyFoldText()
-"    let line = getline(v:foldstart)
-"
-"    let nucolwidth = &fdc + &number * &numberwidth
-"    let windowwidth = winwidth(0) - nucolwidth - 3
-"    let foldedlinecount = v:foldend - v:foldstart
-"
-"    " expand tabs into spaces
-"    let onetab = strpart('          ', 0, &tabstop)
-"    let line = substitute(line, '\t', onetab, 'g')
-"
-"    let line = strpart(line, 0, windowwidth - 2 - len(foldedlinecount))
-"    let fillcharcount = windowwidth - len(line) - len(foldedlinecount) -4
-"    return line . ' ...' . repeat(" ",fillcharcount) . foldedlinecount . ' '
-"endfunction
-"set foldtext=MyFoldText()
-" }}}
 
-" Editor Layout {{{
+" Editor Layout 
 set termencoding=utf-8
 set encoding=utf-8
 set laststatus=2
@@ -70,9 +50,8 @@ set statusline +=%2*%m%*
 set statusline +=%1*%=%5l%*
 set statusline +=%2*/%L%*
 set statusline +=%1*%4c\ %*
-" }}}
 
-" ViM Behavior {{{
+" ViM Behavior 
 set ruler
 set hidden
 set history=1000
@@ -119,18 +98,16 @@ if has("autocmd")
 	endif
 endif
 filetype plugin on
-" }}}
 
-" Highlighting {{{
+" Highlighting 
 set t_Co=256
 colorscheme solarized
 set bg=dark
 syntax on
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59 
-" }}}
 
-" GUI settings {{{
+" GUI settings 
 if has("gui_running")
     " Remove toolbar, left scrollbar and right scrollbar
     set guioptions-=T
@@ -157,22 +134,19 @@ if has("gui_running")
 		set lines=48 columns=132
     endif
 endif
-" }}}
 
-" Keyboard Mappings {{{
+" Keyboard Mappings 
 "cabbrev help tab help
 nmap <silent> <leader>] :NERDTreeToggle<CR>
 nmap <silent> <leader>[ :TMiniBufExplorer<CR>
-" }}}
 
-" MiniBufExpl {{{
+" MiniBufExpl 
 let g:miniBufExplSplitBelow=0
 let g:miniBufExpleMinSize=1
 let g:miniBufExplMaxSize=4
 let g:miniBufExplMapCTabSwitchBufs=1
-" }}}
 
-" Tabular {{{
+" Tabular 
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
  
 function! s:align()
@@ -185,8 +159,6 @@ function! s:align()
     call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
   endif
 endfunction
-" }}}
 
-" Tmux & Clipboard {{{
+" Tmux & Clipboard 
 set clipboard=unnamed
-" }}}
