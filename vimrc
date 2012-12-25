@@ -22,7 +22,7 @@ set scrolloff=4
 set hlsearch
 set incsearch
 set fileformats="unix,mac,dos"
-set fo=tcq
+set fo=tacq
 
 " Fix Vim's broken regex handling
 " http://stevelosh.com/blog/2010/09/coming-home-to-vim/
@@ -117,7 +117,7 @@ if has("gui_running")
     set guioptions-=R
 
     if has("gui_macvim")
-        set guifont=Monaco:h10
+        set guifont=Monaco:h12
         colorscheme solarized
         set bg=dark
 		set lines=48 columns=132
@@ -162,3 +162,11 @@ endfunction
 
 " Tmux & Clipboard 
 set clipboard=unnamed
+
+" Filetypes
+if has ("autocmd")
+	augroup FTOptions
+		autocmd!
+		autocmd FileType *.txt setlocal tw=78
+	augroup END
+end
