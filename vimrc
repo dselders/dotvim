@@ -22,7 +22,7 @@ set scrolloff=4
 set hlsearch
 set incsearch
 set fileformats="unix,mac,dos"
-set fo=tacq
+set fo=tcq
 
 " Fix Vim's broken regex handling
 " http://stevelosh.com/blog/2010/09/coming-home-to-vim/
@@ -119,7 +119,7 @@ if has("gui_running")
     if has("gui_macvim")
         set guifont=Monaco:h12
         colorscheme solarized
-        set bg=dark
+        set bg=light
 		set lines=48 columns=132
     endif
 
