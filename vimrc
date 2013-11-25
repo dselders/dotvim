@@ -130,6 +130,7 @@ if has("gui_running")
 		set lines=48 columns=87
 	endif
     if has ("gui_gtk2")
+        set guifont=Inconsolata\ 12
         colorscheme solarized
 		set lines=48 columns=87
     endif
