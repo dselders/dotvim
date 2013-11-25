@@ -117,21 +117,21 @@ if has("gui_running")
     set guioptions-=R
 
     if has("gui_macvim")
-        set guifont=Monaco:h12
+        set guifont=Inconsolata:h12
         colorscheme solarized
-        set bg=light
-		set lines=48 columns=132
+        set bg=dark
+		set lines=48 columns=87
     endif
 
 	if has("gui_win32")
 		set guifont=Consolas:h10:cANSI
-		set bg=light
+		set bg=dark
 		colorscheme solarized
-		set lines=48 columns=132
+		set lines=48 columns=87
 	endif
     if has ("gui_gtk2")
-        colorscheme blackboard
-		set lines=48 columns=132
+        colorscheme solarized
+		set lines=48 columns=87
     endif
 endif
 
