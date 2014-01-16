@@ -41,15 +41,16 @@ set encoding=utf-8
 set laststatus=2
 set cmdheight=2
 set statusline=
-set statusline +=%1*\ %n\ %*
-set statusline +=%2*%{&fo}\ %*
-set statusline +=%5*%{&ff}%*
-set statusline +=%3*%y%*
-set statusline +=%4*\ %<%F%*
-set statusline +=%2*%m%*
-set statusline +=%1*%=%5l%*
-set statusline +=%2*/%L%*
-set statusline +=%1*%4c\ %*
+set stl=[B%n]\ %f%m\ [%{&ff}]\ [%{&fo}]\ %y\ %=%5l/%L\ %4c
+"set statusline +=%1*\ %n\ %*
+"set statusline +=%2*%{&fo}\ %*
+"set statusline +=%5*%{&ff}%*
+"set statusline +=%3*%y%*
+"set statusline +=%4*\ %<%F%*
+"set statusline +=%2*%m%*
+"set statusline +=%1*%=%5l%*
+"set statusline +=%2*/%L%*
+"set statusline +=%1*%4c\ %*
 
 " ViM Behavior 
 set ruler
@@ -84,6 +85,9 @@ let mapleader = ","
 let g:mapleader = ","
 nnoremap <tab> %
 vnoremap <tab> %
+nnoremap <leader>ww :set invwrap<cr>:set wrap?<cr>
+nnoremap <leader>p :set invpaste<cr>:set paste?<cr>
+nnoremap <leader>cd :lcd %:h<cr>
 nnoremap <leader><space> :noh<cr>
 if has("gui_macvim")
 	nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
@@ -102,7 +106,7 @@ filetype plugin on
 " Highlighting 
 set t_Co=256
 colorscheme solarized
-set bg=dark
+set bg=light
 syntax on
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59 
@@ -119,7 +123,7 @@ if has("gui_running")
     if has("gui_macvim")
         set guifont=Inconsolata:h12
         colorscheme solarized
-        set bg=dark
+        set bg=light
 		set lines=48 columns=87
     endif
 
