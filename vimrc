@@ -121,9 +121,9 @@ if has("gui_running")
     set guioptions-=R
 
     if has("gui_macvim")
-        set guifont=Inconsolata:h12
+        set guifont=Inconsolata:h13
         colorscheme solarized
-        set bg=light
+        set bg=dark
 		set lines=48 columns=87
     endif
 
