@@ -143,7 +143,7 @@ endif
 " Keyboard Mappings 
 "cabbrev help tab help
 nmap <silent> <leader>] :NERDTreeToggle<CR>
-nmap <silent> <leader>[ :TMiniBufExplorer<CR>
+nmap <silent> <leader>[ :MBEToggle<CR>
 
 " MiniBufExpl 
 let g:miniBufExplSplitBelow=0
