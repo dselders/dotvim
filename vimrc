@@ -79,6 +79,7 @@ set vb t_vb=
 set showcmd
 set nomodeline
 set cursorline
+set ttyfast
 set gdefault
 set listchars=tab:▸\ ,eol:¬
 let mapleader = ","
@@ -89,11 +90,16 @@ nnoremap <leader>ww :set invwrap<cr>:set wrap?<cr>
 nnoremap <leader>p :set invpaste<cr>:set paste?<cr>
 nnoremap <leader>cd :lcd %:h<cr>
 nnoremap <leader><space> :noh<cr>
+nnoremap <leader>q gqip
+nnoremap <leader>l V`]
+nnoremap <leader>v <C-w>v<C-w>l
+nnoremap <leader>h <C-w>s<C-w>j
+nnoremap <leader>s <C-w>v<C-w>l :Scratch<cr>
 if has("gui_macvim")
 	nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
 endif
-nmap <leader>l :set list!<CR>
-nmap <leader>v :edit $MYVIMRC<CR>
+nnoremap <leader>li :set list!<CR>
+nnoremap <leader>ev <C-w>v<C-w>l :e $MYVIMRC<cr>
 if has("autocmd") 
 	if has("gui_win32")
 		autocmd! bufwritepost _vimrc source $MYVIMRC
@@ -124,7 +130,7 @@ if has("gui_running")
         set guifont=Inconsolata:h13
         colorscheme solarized
         set bg=dark
-		set lines=48 columns=87
+		set lines=48 columns=160
     endif
 
 	if has("gui_win32")
@@ -141,15 +147,7 @@ if has("gui_running")
 endif
 
 " Keyboard Mappings 
-"cabbrev help tab help
-nmap <silent> <leader>] :NERDTreeToggle<CR>
-nmap <silent> <leader>[ :MBEToggle<CR>
-
-" MiniBufExpl 
-let g:miniBufExplSplitBelow=0
-let g:miniBufExpleMinSize=1
-let g:miniBufExplMaxSize=4
-let g:miniBufExplMapCTabSwitchBufs=1
+nnoremap <silent> <leader>] :NERDTreeToggle<CR>
 
 " Tabular 
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
@@ -172,6 +170,9 @@ set clipboard=unnamed
 if has ("autocmd")
 	augroup FTOptions
 		autocmd!
-		autocmd FileType *.txt setlocal tw=78
+		autocmd FileType markdown setlocal textwidth=79
+		autocmd FileType markdown setlocal wrap
+		autocmd FileType markdown setlocal formatoptions=qrn1
+		autocmd FileType markdown setlocal colorcolumn=85
 	augroup END
 end
