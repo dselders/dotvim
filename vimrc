@@ -84,29 +84,6 @@ set gdefault
 set listchars=tab:▸\ ,eol:¬
 let mapleader = ","
 let g:mapleader = ","
-nnoremap <tab> %
-vnoremap <tab> %
-nnoremap <leader>ww :set invwrap<cr>:set wrap?<cr>
-nnoremap <leader>p :set invpaste<cr>:set paste?<cr>
-nnoremap <leader>cd :lcd %:h<cr>
-nnoremap <leader><space> :noh<cr>
-nnoremap <leader>q gqip
-nnoremap <leader>l V`]
-nnoremap <leader>v <C-w>v<C-w>l
-nnoremap <leader>h <C-w>s<C-w>j
-nnoremap <leader>s <C-w>v<C-w>l :Scratch<cr>
-if has("gui_macvim")
-	nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
-endif
-nnoremap <leader>li :set list!<CR>
-nnoremap <leader>ev <C-w>v<C-w>l :e $MYVIMRC<cr>
-if has("autocmd") 
-	if has("gui_win32")
-		autocmd! bufwritepost _vimrc source $MYVIMRC
-	else
-		autocmd! bufwritepost .vimrc source $MYVIMRC 
-	endif
-endif
 filetype plugin on
 
 " Highlighting 
@@ -147,7 +124,30 @@ if has("gui_running")
 endif
 
 " Keyboard Mappings 
-nnoremap <silent> <leader>] :NERDTreeToggle<CR>
+nnoremap <tab> %
+vnoremap <tab> %
+nnoremap <leader>ww :set invwrap<cr>:set wrap?<cr>
+nnoremap <leader>p :set invpaste<cr>:set paste?<cr>
+nnoremap <leader>cd :lcd %:h<cr>
+nnoremap <leader><space> :noh<cr>
+nnoremap <leader>q gqip
+nnoremap <leader>l V`]
+nnoremap <leader>v <C-w>v<C-w>l
+nnoremap <leader>h <C-w>s<C-w>j
+nnoremap <leader>s <C-w>v<C-w>l:Scratch<cr>
+noremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>li :set list!<CR>
+nnoremap <leader>ev <C-w>v<C-w>l:e $MYVIMRC<cr>
+if has("autocmd") 
+	if has("gui_win32")
+		autocmd! bufwritepost _vimrc source $MYVIMRC
+	else
+		autocmd! bufwritepost .vimrc source $MYVIMRC 
+	endif
+endif
+if has("gui_macvim")
+	nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
+endif
 
 " Tabular 
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
