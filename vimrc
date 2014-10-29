@@ -135,7 +135,7 @@ nnoremap <leader>l V`]
 nnoremap <leader>v <C-w>v<C-w>l
 nnoremap <leader>h <C-w>s<C-w>j
 nnoremap <leader>s <C-w>v<C-w>l:Scratch<cr>
-noremap <leader>n :NERDTreeToggle<CR>
+noremap <leader>n :NERDTreeToggle<cr>
 nnoremap <leader>li :set list!<CR>
 nnoremap <leader>ev <C-w>v<C-w>l:e $MYVIMRC<cr>
 if has("autocmd") 
@@ -168,6 +168,11 @@ set clipboard=unnamed
 
 " Filetypes
 if has ("autocmd")
+	augroup FileTypeDetect
+		autocmd!
+		autocmd BufNew,BufNewFile,BufRead *.txt,*.md,*.mmd :setfiletype markdown
+		autocmd BufNew,BufNewFile,BufRead *.j2 :setfiletype jinja
+	augroup END
 	augroup FTOptions
 		autocmd!
 		autocmd FileType markdown setlocal textwidth=79
