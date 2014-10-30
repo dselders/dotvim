@@ -181,3 +181,7 @@ if has ("autocmd")
 		autocmd FileType markdown setlocal colorcolumn=85
 	augroup END
 end
+
+" Syntastic
+let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['html'] }
+let g:syntastic_python_checkers = ['pyflakes']
