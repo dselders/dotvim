@@ -2,12 +2,12 @@
 " David Selders
 "
 
-" Basics 
+" Basics
 call pathogen#infect()
 call pathogen#helptags()
 set nocompatible
 
-" Editing 
+" Editing
 set showmode
 set nowrap
 set ts=4 sts=4 sw=4 noexpandtab
@@ -29,13 +29,13 @@ set fo=tcq
 nnoremap / /\v
 vnoremap / /\v
 
-" Folding 
+" Folding
 set foldenable
 set foldcolumn=3
 set foldlevelstart=0
 set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
 
-" Editor Layout 
+" Editor Layout
 set termencoding=utf-8
 set encoding=utf-8
 set laststatus=2
@@ -52,7 +52,7 @@ set stl=[B%n]\ %f%m\ [%{&ff}]\ [%{&fo}]\ %y\ %=%5l/%L\ %4c
 "set statusline +=%2*/%L%*
 "set statusline +=%1*%4c\ %*
 
-" ViM Behavior 
+" ViM Behavior
 set ruler
 set hidden
 set history=1000
@@ -75,7 +75,7 @@ set noswapfile
 set wildmenu
 set wildignore=*.swp,*.bak,*.pyc
 set title
-set vb t_vb= 
+set vb t_vb=
 set showcmd
 set nomodeline
 set cursorline
@@ -86,15 +86,15 @@ let mapleader = ","
 let g:mapleader = ","
 filetype plugin on
 
-" Highlighting 
+" Highlighting
 set t_Co=256
 colorscheme solarized
 set bg=dark
 syntax on
 highlight NonText guifg=#4a4a59
-highlight SpecialKey guifg=#4a4a59 
+highlight SpecialKey guifg=#4a4a59
 
-" GUI settings 
+" GUI settings
 if has("gui_running")
     " Remove toolbar, left scrollbar and right scrollbar
     set guioptions-=T
@@ -123,7 +123,7 @@ if has("gui_running")
     endif
 endif
 
-" Keyboard Mappings 
+" Keyboard Mappings
 nnoremap <tab> %
 vnoremap <tab> %
 nnoremap <leader>ww :set invwrap<cr>:set wrap?<cr>
@@ -138,20 +138,20 @@ nnoremap <leader>s <C-w>v<C-w>l:Scratch<cr>
 noremap <leader>n :NERDTreeToggle<cr>
 nnoremap <leader>li :set list!<CR>
 nnoremap <leader>ev <C-w>v<C-w>l:e $MYVIMRC<cr>
-if has("autocmd") 
+if has("autocmd")
 	if has("gui_win32")
 		autocmd! bufwritepost _vimrc source $MYVIMRC
 	else
-		autocmd! bufwritepost .vimrc source $MYVIMRC 
+		autocmd! bufwritepost .vimrc source $MYVIMRC
 	endif
 endif
 if has("gui_macvim")
 	nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
 endif
 
-" Tabular 
+" Tabular
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
- 
+
 function! s:align()
   let p = '^\s*|\s.*\s|\s*$'
   if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
@@ -163,7 +163,7 @@ function! s:align()
   endif
 endfunction
 
-" Tmux & Clipboard 
+" Tmux & Clipboard
 set clipboard=unnamed
 
 " Filetypes
