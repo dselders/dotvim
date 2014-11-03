@@ -185,3 +185,11 @@ end
 " Syntastic
 let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['html'] }
 let g:syntastic_python_checkers = ['pyflakes']
+
+" Airline
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+
+let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_symbols.branch = '⎇ '
