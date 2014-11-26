@@ -82,8 +82,7 @@ set cursorline
 set ttyfast
 set gdefault
 set listchars=tab:▸\ ,eol:¬
-let mapleader = ","
-let g:mapleader = ","
+let mapleader=","
 filetype plugin on
 
 " Highlighting
@@ -131,7 +130,6 @@ nnoremap <leader>p :set invpaste<cr>:set paste?<cr>
 nnoremap <leader>cd :lcd %:h<cr>
 nnoremap <leader><space> :noh<cr>
 nnoremap <leader>q gqip
-nnoremap <leader>l V`]
 nnoremap <leader>v <C-w>v<C-w>l
 nnoremap <leader>h <C-w>s<C-w>j
 nnoremap <leader>s <C-w>v<C-w>l:Scratch<cr>
@@ -187,9 +185,22 @@ let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [], 'passive_
 let g:syntastic_python_checkers = ['pyflakes']
 
 " Airline
+noremap <leader>ar :AirlineRefresh<cr>
+
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
 endif
 
-let g:airline_symbols.whitespace = 'Ξ'
-let g:airline_symbols.branch = '⎇ '
+let g:airline_symbols.whitespace='Ξ'
+let g:airline_symbols.branch='⎇ '
+let g:airline_symbols.linenr='␤'
+let g:airline_symbols.paste='ρ'
+let g:airline_detect_modified=1
+let g:airline_detect_paste=1
+
+" Bufferline
+let g:bufferline_echo=0
+
+" Fugitive
+noremap <leader>gs :Gstatus<cr>
+noremap <leader>gd :Gdiff<cr>
