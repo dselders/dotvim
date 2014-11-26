@@ -135,7 +135,8 @@ nnoremap <leader>h <C-w>s<C-w>j
 nnoremap <leader>s <C-w>v<C-w>l:Scratch<cr>
 noremap <leader>n :NERDTreeToggle<cr>
 nnoremap <leader>li :set list!<CR>
-nnoremap <leader>ev <C-w>v<C-w>l:e $MYVIMRC<cr>
+nnoremap <leader>ev :e $MYVIMRC<cr>
+noremap <leader><tab> :bnext<cr>
 if has("autocmd")
 	if has("gui_win32")
 		autocmd! bufwritepost _vimrc source $MYVIMRC
@@ -204,3 +205,7 @@ let g:bufferline_echo=0
 " Fugitive
 noremap <leader>gs :Gstatus<cr>
 noremap <leader>gd :Gdiff<cr>
+noremap <leader>gp :Gpush<cr>
+
+" Gitgutter
+let g:gitgutter_highlight_lines=1
