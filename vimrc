@@ -132,7 +132,7 @@ nnoremap <leader><space> :noh<cr>
 nnoremap <leader>q gqip
 nnoremap <leader>v <C-w>v<C-w>l
 nnoremap <leader>h <C-w>s<C-w>j
-nnoremap <leader>s <C-w>v<C-w>l:Scratch<cr>
+nnoremap <leader>s :Scratch<cr>
 noremap <leader>n :NERDTreeToggle<cr>
 nnoremap <leader>li :set list!<CR>
 nnoremap <leader>ev :e $MYVIMRC<cr>
