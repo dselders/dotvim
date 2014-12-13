@@ -88,7 +88,7 @@ filetype plugin on
 " Highlighting
 set t_Co=256
 colorscheme solarized
-set bg=dark
+set bg=light
 syntax on
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
@@ -103,7 +103,7 @@ if has("gui_running")
     set guioptions-=R
 
     if has("gui_macvim")
-        set guifont=Inconsolata:h13
+        set guifont=Inconsolata\ for\ Powerline:h13
         colorscheme solarized
         set bg=dark
 		set lines=48 columns=160
@@ -135,7 +135,7 @@ nnoremap <leader>h <C-w>s<C-w>j
 nnoremap <leader>s :Scratch<cr>
 noremap <leader>n :NERDTreeToggle<cr>
 nnoremap <leader>li :set list!<CR>
-nnoremap <leader>ev :e $MYVIMRC<cr>
+nnoremap <leader>ev :e ~/.vim/vimrc<cr>
 noremap <leader><tab> :bnext<cr>
 if has("autocmd")
 	if has("gui_win32")
@@ -188,14 +188,13 @@ let g:syntastic_python_checkers = ['pyflakes']
 " Airline
 noremap <leader>ar :AirlineRefresh<cr>
 
-if !exists('g:airline_symbols')
+if !exists("g:airline_symbols")
 	let g:airline_symbols = {}
 endif
 
-let g:airline_symbols.whitespace='Ξ'
-let g:airline_symbols.branch='⎇ '
-let g:airline_symbols.linenr='␤'
-let g:airline_symbols.paste='ρ'
+let g:airline_powerline_fonts=1
+let g:airline_theme="solarized"
+let g:airline#extensions#branch#empty_message  =  "No SCM"
 let g:airline_detect_modified=1
 let g:airline_detect_paste=1
 

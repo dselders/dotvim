@@ -31,3 +31,6 @@
 [submodule "bundle/scratch"]
 	path = bundle/scratch
 	url = https://github.com/mtth/scratch.vim.git
+[submodule "bundle/vim-tmux-navigator"]
+	path = bundle/vim-tmux-navigator
+	url = git@github.com:christoomey/vim-tmux-navigator.git
