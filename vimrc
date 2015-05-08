@@ -14,7 +14,7 @@ set ts=4 sts=4 sw=4 noexpandtab
 set backspace=indent,eol,start
 set autoindent
 set copyindent
-set number
+set relativenumber
 set showmatch
 set ignorecase
 set smartcase
