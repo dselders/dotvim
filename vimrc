@@ -106,7 +106,8 @@ if has("gui_running")
         set guifont=Inconsolata\ for\ Powerline:h13
         colorscheme solarized
         set bg=dark
-		set lines=48 columns=160
+		set lines=48 columns=132
+		set transparency=10
     endif
 
 	if has("gui_win32")
