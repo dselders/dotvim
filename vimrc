@@ -14,7 +14,7 @@ set ts=4 sts=4 sw=4 noexpandtab
 set backspace=indent,eol,start
 set autoindent
 set copyindent
-set relativenumber
+set number
 set showmatch
 set ignorecase
 set smartcase
@@ -196,6 +196,7 @@ endif
 let g:airline_powerline_fonts=1
 let g:airline_theme="solarized"
 let g:airline#extensions#branch#empty_message  =  "No SCM"
+let g:airline#extensions#tabline#enabled = 1
 let g:airline_detect_modified=1
 let g:airline_detect_paste=1
 
@@ -209,3 +210,14 @@ noremap <leader>gp :Gpush<cr>
 
 " Gitgutter
 let g:gitgutter_highlight_lines=1
+
+" Line numbers
+function! NumberToggle()
+	if(&relativenumber == 1)
+		set nornu
+		set number
+	else
+		set relativenumber
+	endif
+endfunc
+nnoremap <C-n> :call NumberToggle()<cr>
