@@ -179,6 +179,7 @@ if has ("autocmd")
 		autocmd FileType markdown setlocal wrap
 		autocmd FileType markdown setlocal formatoptions=qrn1
 		autocmd FileType markdown setlocal colorcolumn=85
+		autocmd FileType markdown setlocal spell
 	augroup END
 end
 
