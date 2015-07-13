@@ -81,7 +81,7 @@ set nomodeline
 set cursorline
 set ttyfast
 set gdefault
-set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\ ,trail:·,eol:¬
 let mapleader=","
 filetype plugin on
 
