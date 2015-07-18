@@ -175,10 +175,11 @@ if has ("autocmd")
 	augroup END
 	augroup FTOptions
 		autocmd!
-		autocmd FileType markdown setlocal textwidth=79
 		autocmd FileType markdown setlocal wrap
+		autocmd FileType markdown setlocal linebreak
+		autocmd FileType markdown setlocal showbreak=…
 		autocmd FileType markdown setlocal formatoptions=qrn1
-		autocmd FileType markdown setlocal colorcolumn=85
+		autocmd FileType markdown setlocal colorcolumn=80
 		autocmd FileType markdown setlocal spell
 	augroup END
 end
