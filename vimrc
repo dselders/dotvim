@@ -107,7 +107,7 @@ if has("gui_running")
         colorscheme solarized
         set bg=dark
 		set lines=48 columns=132
-		set transparency=10
+		set transparency=1
     endif
 
 	if has("gui_win32")
