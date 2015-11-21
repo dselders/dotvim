@@ -181,6 +181,8 @@ if has ("autocmd")
 		autocmd FileType markdown setlocal formatoptions=qrn1
 		autocmd FileType markdown setlocal colorcolumn=80
 		autocmd FileType markdown setlocal spell
+		autocmd FileType jinja setlocal ts=2 sts=2 sw=2
+		autocmd FileType yaml setlocal ts=2 sts=2 sw=2
 	augroup END
 end
 
