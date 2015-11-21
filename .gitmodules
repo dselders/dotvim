@@ -28,10 +28,6 @@
 [submodule "bundle/gitgutter"]
 	path = bundle/gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
-[submodule "bundle/scratch"]
-	path = bundle/scratch
-	url = https://github.com/mtth/scratch.vim.git
-	ignore = untracked
 [submodule "bundle/vim-tmux-navigator"]
 	path = bundle/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator.git
