@@ -88,7 +88,7 @@ filetype plugin on
 " Highlighting
 set t_Co=256
 colorscheme solarized
-set bg=dark
+set bg=light
 syntax on
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
@@ -105,7 +105,7 @@ if has("gui_running")
     if has("gui_macvim")
         set guifont=Inconsolata\ for\ Powerline:h13
         colorscheme solarized
-        set bg=dark
+        set bg=light
 		set lines=48 columns=132
 		set transparency=1
     endif
