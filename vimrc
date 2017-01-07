@@ -88,7 +88,7 @@ filetype plugin on
 " Highlighting
 set t_Co=256
 colorscheme solarized
-set bg=light
+set bg=dark
 syntax on
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
