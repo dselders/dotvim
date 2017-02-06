@@ -174,6 +174,8 @@ if has ("autocmd")
 		autocmd BufNew,BufNewFile,BufRead *.txt,*.md,*.mmd :setfiletype markdown
 		autocmd BufNew,BufNewFile,BufRead *.j2 :setfiletype jinja
 		autocmd BufNew,BufNewFile,BufRead Vagrantfile :setfiletype ruby
+		autocmd BufNew,BufNewFile,BufRead *.yml,*.yaml :setfiletype yaml
+		autocmd BufNew,BufNewFile,BufRead *.py :setfiletype python
 	augroup END
 	augroup FTOptions
 		autocmd!
