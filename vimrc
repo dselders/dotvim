@@ -171,11 +171,13 @@ filetype off
 if has ("autocmd")
 	augroup FileTypeDetect
 		autocmd!
+		autocmd BufNew,BufNewFile,BufRead .vimrc,vimrc :setfiletype vim
 		autocmd BufNew,BufNewFile,BufRead *.txt,*.md,*.mmd :setfiletype markdown
 		autocmd BufNew,BufNewFile,BufRead *.j2 :setfiletype jinja
 		autocmd BufNew,BufNewFile,BufRead Vagrantfile :setfiletype ruby
 		autocmd BufNew,BufNewFile,BufRead *.yml,*.yaml :setfiletype yaml
 		autocmd BufNew,BufNewFile,BufRead *.py :setfiletype python
+		autocmd BufNew,BufNewFile,BufRead *.tf :setfiletype terraform
 	augroup END
 	augroup FTOptions
 		autocmd!
