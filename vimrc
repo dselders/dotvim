@@ -105,7 +105,7 @@ if has("gui_running")
     if has("gui_macvim")
         set guifont=Inconsolata\ for\ Powerline:h13
         colorscheme solarized
-        set bg=light
+        set bg=dark
 		set lines=48 columns=132
 		set transparency=1
     endif
@@ -167,11 +167,17 @@ endfunction
 set clipboard=unnamed
 
 " Filetypes
+filetype off
 if has ("autocmd")
 	augroup FileTypeDetect
 		autocmd!
+		autocmd BufNew,BufNewFile,BufRead .vimrc,vimrc :setfiletype vim
 		autocmd BufNew,BufNewFile,BufRead *.txt,*.md,*.mmd :setfiletype markdown
 		autocmd BufNew,BufNewFile,BufRead *.j2 :setfiletype jinja
+		autocmd BufNew,BufNewFile,BufRead Vagrantfile :setfiletype ruby
+		autocmd BufNew,BufNewFile,BufRead *.yml,*.yaml :setfiletype yaml
+		autocmd BufNew,BufNewFile,BufRead *.py :setfiletype python
+		autocmd BufNew,BufNewFile,BufRead *.tf :setfiletype terraform
 	augroup END
 	augroup FTOptions
 		autocmd!
@@ -181,8 +187,10 @@ if has ("autocmd")
 		autocmd FileType markdown setlocal formatoptions=qrn1
 		autocmd FileType markdown setlocal colorcolumn=80
 		autocmd FileType markdown setlocal spell
-		autocmd FileType jinja setlocal ts=2 sts=2 sw=2
-		autocmd FileType yaml setlocal ts=2 sts=2 sw=2
+		autocmd FileType jinja setlocal ts=2 sts=2 sw=2 expandtab
+		autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
+		autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+		autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
 	augroup END
 end
 
