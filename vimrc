@@ -171,13 +171,14 @@ filetype off
 if has ("autocmd")
 	augroup FileTypeDetect
 		autocmd!
-		autocmd BufNew,BufNewFile,BufRead .vimrc,vimrc :setfiletype vim
-		autocmd BufNew,BufNewFile,BufRead *.txt,*.md,*.mmd :setfiletype markdown
-		autocmd BufNew,BufNewFile,BufRead *.j2 :setfiletype jinja
-		autocmd BufNew,BufNewFile,BufRead Vagrantfile :setfiletype ruby
-		autocmd BufNew,BufNewFile,BufRead *.yml,*.yaml :setfiletype yaml
-		autocmd BufNew,BufNewFile,BufRead *.py :setfiletype python
-		autocmd BufNew,BufNewFile,BufRead *.tf :setfiletype terraform
+		autocmd BufEnter,BufNew,BufNewFile,BufRead .vimrc,vimrc :setfiletype vim
+		autocmd BufEnter,BufNew,BufNewFile,BufRead *.txt,*.md,*.mmd :setfiletype markdown
+		autocmd BufEnter,BufNew,BufNewFile,BufRead *.j2 :setfiletype jinja
+		autocmd BufEnter,BufNew,BufNewFile,BufRead Vagrantfile :setfiletype ruby
+		autocmd BufEnter,BufNew,BufNewFile,BufRead *.yml,*.yaml :setfiletype yaml
+		autocmd BufEnter,BufNew,BufNewFile,BufRead *.py :setfiletype python
+		autocmd BufEnter,BufNew,BufNewFile,BufRead *.tf :setfiletype terraform
+		autocmd BufEnter,BufNew,BufNewFile,BufRead *.dot :setfiletype dot
 	augroup END
 	augroup FTOptions
 		autocmd!
@@ -191,6 +192,7 @@ if has ("autocmd")
 		autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
 		autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 		autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
+		autocmd FileType dot setlocal ts=2 sts=2 sw=2 expandtab
 	augroup END
 end
 
