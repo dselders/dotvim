@@ -214,9 +214,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_detect_modified=1
 let g:airline_detect_paste=1
 
-" Bufferline
-let g:bufferline_echo=0
-
 " Fugitive
 noremap <leader>gs :Gstatus<cr>
 noremap <leader>gd :Gdiff<cr>
