@@ -95,20 +95,20 @@ highlight SpecialKey guifg=#4a4a59
 
 " GUI settings
 if has("gui_running")
-    " Remove toolbar, left scrollbar and right scrollbar
-    set guioptions-=T
-    set guioptions-=l
-    set guioptions-=L
-    set guioptions-=r
-    set guioptions-=R
+	" Remove toolbar, left scrollbar and right scrollbar
+	set guioptions-=T
+	set guioptions-=l
+	set guioptions-=L
+	set guioptions-=r
+	set guioptions-=R
 
-    if has("gui_macvim")
-        set guifont=Inconsolata\ for\ Powerline:h13
-        colorscheme solarized
-        set bg=dark
+	if has("gui_macvim")
+		set guifont=Inconsolata\ for\ Powerline:h13
+		colorscheme solarized
+		set bg=dark
 		set lines=48 columns=132
 		set transparency=1
-    endif
+	endif
 
 	if has("gui_win32")
 		set guifont=Consolas:h10:cANSI
@@ -116,11 +116,11 @@ if has("gui_running")
 		colorscheme solarized
 		set lines=48 columns=87
 	endif
-    if has ("gui_gtk2")
-        set guifont=Inconsolata\ 12
-        colorscheme solarized
+	if has ("gui_gtk2")
+		set guifont=Inconsolata\ 12
+		colorscheme solarized
 		set lines=48 columns=87
-    endif
+	endif
 endif
 
 " Keyboard Mappings
@@ -153,14 +153,14 @@ endif
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
 function! s:align()
-  let p = '^\s*|\s.*\s|\s*$'
-  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-    Tabularize/|/l1
-    normal! 0
-    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-  endif
+	let p = '^\s*|\s.*\s|\s*$'
+	if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+		let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+		let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+		Tabularize/|/l1
+		normal! 0
+		call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+	endif
 endfunction
 
 " Tmux & Clipboard
@@ -232,3 +232,11 @@ function! NumberToggle()
 	endif
 endfunc
 nnoremap <C-n> :call NumberToggle()<cr>
+
+" NERDTree
+if has("autocmd")
+	autocmd StdinReadPre * let s:std_in=1
+	autocmd vimenter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+	autocmd vimenter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argc()[0] | wincmd p | ene | endif
+	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+end
